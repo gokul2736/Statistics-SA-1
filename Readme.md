@@ -22,7 +22,7 @@
 
 ---
 
-## 1. Independent T-Test
+## 1. T-Test
 - **Aim:** Compare the average scores of two student groups.  
 - **Case Statement:** A teacher wants to check if two teaching methods produce different results.  
 
@@ -43,6 +43,10 @@
 6. Compute degrees of freedom and p-value.  
 7. Compare p-value with α = 0.05 to make a decision.  
 
+### Program
+```python
+
+```
 ### Output:
 *(Add your program output here)*  
 
@@ -63,12 +67,16 @@
 5. Compare F-statistic with critical F-values or calculate p-value.  
 6. Draw conclusion based on α = 0.05.  
 
+### Program
+```python
+
+```
 ### Output:
 *(Add your program output here)*  
 
 ---
 
-## 3. One-Sample Z-Test
+## 3. Z-Test
 - **Aim:** Test whether a sample mean differs from a claimed population mean.  
 - **Case Statement:** Verify if the average sugar content in soft drinks is less than 30g.  
 
@@ -84,6 +92,11 @@
    \]  
 5. Compute p-value using standard normal distribution.  
 6. Compare p-value with α = 0.05 to make a decision.  
+
+### Program
+```python
+
+```
 
 ### Output:
 *(Add your program output here)*  
@@ -103,6 +116,50 @@
    \]  
 4. Determine degrees of freedom: df = n_categories - 1.  
 5. Compare Chi-Square statistic with critical value or p-value.  
+
+### Program
+```python
+import numpy as np
+from scipy.stats import chi2
+
+#
+# Chi-Square Test Real-Time Experiment
+#
+
+# Aim: To determine if a six-sided die is fair using the Chi-Square goodness-of-fit test.
+# Problem: Compare observed die roll frequencies with expected frequencies for a fair die.
+
+# --- Data ---
+observed = np.array([8, 10, 9, 12, 11, 10])
+
+# --- Calculations ---
+# Calculate expected frequencies for a fair die
+total_rolls = np.sum(observed)
+expected = np.full(6, total_rolls / 6)
+
+# Compute the Chi-Square statistic
+chi_square_stat = np.sum((observed - expected)**2 / expected)
+
+# Determine degrees of freedom
+df = len(observed) - 1
+
+# Find the critical value from the Chi-Square distribution
+alpha = 0.05
+chi_square_critical = chi2.ppf(1 - alpha, df)
+
+# --- Output ---
+print("--- Chi-Square Test Results ---")
+print(f"Chi-Square Statistic: {chi_square_stat:.3f}")
+print(f"Degrees of Freedom: {df}")
+print(f"Critical Chi-Square Value (for alpha=0.05): {chi_square_critical:.3f}")
+
+# --- Conclusion ---
+if chi_square_stat > chi_square_critical:
+    print("\nResult: Reject null hypothesis. The die is not fair.")
+else:
+    print("\nResult: Fail to reject null hypothesis. The die is fair.")
+
+```
 
 ### Output:
 *(Add your program output here)*  
@@ -149,6 +206,11 @@
    \]  
 5. Compare with F-critical values or p-value.  
 
+### Program
+```python
+
+```
+
 ### Output:
 *(Add your program output here)*  
 
@@ -168,6 +230,11 @@
    F_{Treatment} = \frac{MS_{Treatment}}{MS_{Error}}
    \]  
 6. Compare with F-critical to make a decision.  
+
+### Program
+```python
+
+```
 
 ### Output:
 *(Add your program output here)*  
