@@ -613,9 +613,9 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### How to Run the Programs
+### 4. How to Run the Programs
 Example: Running the T-Test Program
 ```bash
 python t-test.py
 ```
-## The output of the statistical test will be printed directly to your terminal.
+## The Result of the statistical test will be printed on terminal.
